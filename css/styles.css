@@ -1,0 +1,432 @@
+html {
+    scroll-behavior: smooth;
+}
+
+html::selection {
+    background-color: #00c3ff;
+    color: rgb(212, 255, 0);
+}
+
+/* Styles généraux */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.90) 35%, rgba(255,255,255,0.6) 80%);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  z-index: 1000; /* s'assurer que la navbar reste au-dessus des images */
+}
+
+.main-nav {
+  position: relative; /* conteneur positionné pour référencer le logo absolu */
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center; /* s'assurer que les éléments sont verticalement centrés */
+  padding: 1rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 1rem;
+}
+
+.main-nav a:hover {
+  color: #004da0;
+}
+
+.navigation {
+  text-align: right;
+  font-size: 0.9rem ;
+}
+
+
+
+/* Grouped nav actions (arrows) positioned at right without affecting other menu items */
+.main-nav ul .nav-actions {
+  margin-left: auto; /* push this li to the far right */
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.main-nav ul .nav-actions .nav-arrow {
+  color: #333;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.main-nav ul .nav-actions .nav-arrow:hover {
+  background-color: rgba(0,0,0,0.05);
+  color: #004da0;
+}
+
+main {
+  scroll-padding-top: 70px; /* pour tenir compte du menu sticky */
+  padding: 2rem;
+}
+
+.presentation {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 125%;
+  font-weight: bold;
+}
+
+.article {
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.article-left .text {
+  flex: 1;
+}
+
+.article-left .image {
+  flex: 1;
+}
+
+.article-right .image {
+  flex: 1;
+}
+
+.article-right .text {
+  flex: 1;
+}
+
+/* Images */
+.image img {
+  width: calc(100% - 10px);
+  display: block;
+  height: auto;
+  border-radius: 8px; /* non-étudié en TD peut être */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Texte */
+.text h2 {
+  margin-bottom: 1rem;
+  color: #007BFF;
+}
+
+.text p {
+  margin-bottom: 1rem;
+}
+
+
+
+.size {
+  font-size: 1.25rem ;
+}
+
+.company {
+  text-align: center;
+  font-size: 0.7rem ;
+}
+
+#btnTop {
+  position: fixed;
+  bottom: 20px;   /* distance du bas */
+  right: 20px;    /* distance du côté droit */
+  padding: 9px 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;      /* afficher le bouton (JS peut ensuite le cacher/afficher) */
+  z-index: 9999;       /* au-dessus des autres éléments */
+  background-color: #007BFF;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#btnTop:hover {
+  background-color: #0065d1;
+}
+
+.AJOUT {
+  color: rgb(97, 97, 97);
+  text-align: justify;
+  font-size: auto;
+}
+
+li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+pre {
+  font-family: Arial, sans-serif;
+}
+
+.full-width-image {
+  background-color: #cccccc; /* couleur de fond de secours */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;      /* couvre entièrement le conteneur */
+  width: calc(100vw - 8px);    /* réduit de 8px */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;          /* neutralise le padding du parent pour full-bleed */
+  margin-right: -50vw;
+  height: 55vh;                /* taile de l'image visible */
+  min-height: 300px;           /* taile de l'image visible */
+  margin-top: -20px;
+  display: flex;               /* utiliser flexbox pour centrer le contenu */
+  align-items: center;         /* centrer verticalement */
+  justify-content: center;     /* centrer horizontalement */
+}
+
+.full-width-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/Caraibes/ilescaraibes.png');
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.8); /* ajuste la luminosité ici sans toucher au texte */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.full-width-image2 {
+  background-color: #cccccc; /* couleur de fond de secours */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;      /* couvre entièrement le conteneur */
+  width: calc(100vw - 8px);    /* réduit de 8px */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;          /* neutralise le padding du parent pour full-bleed */
+  margin-right: -50vw;
+  height: 55vh;                /* taile de l'image visible */
+  min-height: 300px;           /* taile de l'image visible */
+  margin-top: -20px;
+  display: flex;               /* utiliser flexbox pour centrer le contenu */
+  align-items: center;         /* centrer verticalement */
+  justify-content: center;     /* centrer horizontalement */
+}
+
+.full-width-image2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/Ville/tokio.avif');
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.85);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.full-width-image3 {
+  background-color: #cccccc; /* couleur de fond de secours */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;      /* couvre entièrement le conteneur */
+  width: calc(100vw - 8px);    /* réduit de 8px */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;          /* neutralise le padding du parent pour full-bleed */
+  margin-right: -50vw;
+  height: 55vh;                /* taile de l'image visible */
+  min-height: 300px;           /* taile de l'image visible */
+  margin-top: -20px;
+  display: flex;               /* utiliser flexbox pour centrer le contenu */
+  align-items: center;         /* centrer verticalement */
+  justify-content: center;     /* centrer horizontalement */
+}
+
+.full-width-image3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/Montagne/chamonix_page.jpg');
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.text {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.vidéo_ytb {
+  width: 100vw;                /* prend toute la largeur de la fenêtre */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;          /* neutralise le padding du parent pour full-bleed */
+  margin-right: -50vw;
+  height: 55vh;               /* taile de l'image visible */
+           /* taile de l'image visible */
+             /* utiliser flexbox pour centrer le contenu */
+}
+
+.centered-title {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 3rem;
+  margin: 0;                   /* être sure qu'il soit collé aux bords */
+  z-index: 1000;
+}
+
+.article-gallery .gallery-container {
+  display: flex;
+  gap: 12rem;               /* espace entre les images */
+  margin: 25px auto auto auto;
+}
+
+.article-gallery .gallery-container img {
+  flex: 1;
+  border-radius: 8px; /* utilisation de border-radius */
+  border-color: blue;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* utilisation de box-shadow */
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+fieldset {
+  border: 2px solid #8e8e8e;        /* bordure bleue */
+  padding: 10px 7px 10px 7px;         /* espace entre l'image et la bordure */
+  border-radius: 8px;                 /* coins arrondis */
+}
+
+.logo {
+  position: absolute;
+  left: 2rem; /* distance depuis le bord gauche */
+  top: 50%;
+  transform: translateY(-50%); /* centrer verticalement dans la nav */
+  width: 10%;
+  height: auto;
+  z-index: 1001; /* au-dessus du contenu de la nav */
+}
+
+table {
+  width: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.site-footer .socials {
+  text-align: right;
+  justify-content: flex-end; /* place les icônes à droite du footer */
+  margin-top: 0.5rem;
+}
+
+
+
+.icon-footer1 {
+  width: 1%; /* garder 7% pour footer1 */
+}
+
+.icon-footer2 {
+  width: 1.1%; /* garder 8% pour footer2 */
+}
+
+.icon-footer3 {
+  width: 1.225%; /* garder 9% pour footer3 */
+}
+
+
+/* Pied de page */
+.site-footer {
+  background-color: #e0e0e0;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.acceuil {
+  font-size: 1.2rem;
+  font-weight: bold;  
+}
+
+.center {
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.recap {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-style: solid;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-color: red;
+}
+
+thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+tbody tr:nth-child(even) {         /* lignes paires*/
+  background-color: #a8c6df;
+}
+
+tbody tr:nth-child(odd) {         /* lignes impaires*/
+  background-color: #d8eaf8;
+}
+
+
+
+
+
+
+
+/* responsive */
+@media screen and (min-width: 80rem) {
+  .container {
+    margin: 1em 2em;
+  }
+}
