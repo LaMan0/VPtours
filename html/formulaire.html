@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'inscription</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+<body>
+    <h1>Formulaire de recommandation</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+
+        <fieldset>
+            <label for="nom">Nom :<span class="required">*</span></label>
+            <input type="text" id="nom" name="nom" required placeholder="Votre Nom"><br>
+
+            <label for="prenom">Prénom :<span class="required">*</span></label>
+            <input type="text" id="prenom" name="prenom" required placeholder="Votre Prenom"><br>
+
+            <label for="email">E-mail :<span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="exemple@mail.fr"><br>
+
+            <label for="recom">Recommandation :<span class="required">*</span></label>
+            <textarea id="recom" name="recom" placeholder="Veuillez remplir ce champ" required></textarea><br>
+        </fieldset>
+        <p>
+            <span class="required">*</span> Champs obligatoires
+        </p>
+
+        <div class="boutons">
+            <input type="submit" value="Envoyer">
+            <input type="reset" value="Réinitialiser">
+            <a href="../index.html" class="nav-arrow" aria-label="Précédent">←</a>
+        </div>
+    </form>
+</body>
+</html>
